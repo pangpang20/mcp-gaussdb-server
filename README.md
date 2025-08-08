@@ -112,7 +112,7 @@ sudo rpm -ivh code-1.102.1-1752598762.el8.aarch64.rpm
 ```bash
 {
   "mcpServers": {
-    "gassdb": {
+    "gaussdb": {
       "disabled": false,
       "timeout": 60,
       "type": "stdio",
