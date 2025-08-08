@@ -14,8 +14,19 @@ LLM使用ModelArts提供的DeepSeek V3模型。
 
 ```bash
 git clone https://github.com/pangpang20/mcp-gaussdb-server.git
+cd mcp-gaussdb-server
 
 ```
+
+创建虚拟环境
+
+```bash
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+```
+
 
 安装依赖
 
@@ -26,4 +37,16 @@ pip install -r requirements.txt
 ```
 
 ## 操作步骤
+
+安装vscode
+
+```bash
+https://vscode.download.prss.microsoft.com/dbazure/download/stable/7adae6a56e34cb64d08899664b814cf620465925/code-1.102.1-1752598762.el8.aarch64.rpm
+rpm -ivh code-1.102.1-1752598762.el8.aarch64.rpm 
+
+```
+
+安装Cline插件
+在 extensions marketplace搜索： Cline 并安装
+
 
