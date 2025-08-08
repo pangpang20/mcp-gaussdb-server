@@ -1,7 +1,9 @@
 #!/bin/bash
 # 启动 MCP 服务前自动激活虚拟环境，并设置动态库路径
 
-cd /opt/mcp/mcp-gaussdb-server/gaussdb-server
+# 切换到脚本所在目录
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR" || exit 1
 
 # 激活 venv
 source .venv/bin/activate
