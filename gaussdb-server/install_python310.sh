@@ -4,6 +4,7 @@ cd /usr/src
 
 if [ ! -f /lib64/libgcc_s.so.1 ]; then
     sudo ln -sf /usr/lib64/libgcc_s.so.1 /lib64/libgcc_s.so.1
+    sudo ldconfig
 fi
 
 sudo wget https://mirrors.huaweicloud.com/python/3.10.14/Python-3.10.14.tgz
