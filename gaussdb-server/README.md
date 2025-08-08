@@ -29,9 +29,17 @@ sh install_python310.sh
 创建虚拟环境，并激活
 
 ```bash
-python3.10 -m venv .venv
+pip3 install uv -i https://pypi.tuna.tsinghua.edu.cn/simple
+export PATH=$HOME/.local/bin:$PATH
+
+uv venv --python /usr/local/bin/python3.10
 source .venv/bin/activate
 python3 -V # 查看python版本, 确保是3.10.14
+
+# 安装mcp
+uv pip install "mcp[cli]" -i https://pypi.tuna.tsinghua.edu.cn/simple
+uv pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+
 ```
 
 ### 安装依赖并配置环境变量
@@ -39,15 +47,13 @@ python3 -V # 查看python版本, 确保是3.10.14
 安装mcp和gaussdb驱动
 
 ```bash
-pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
-
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 
 # 初始化pq连接,大约1分钟
 sh init_pq.sh
 
-# 检查
+# 检查, 正常返回3条记录
 ip list | grep gaussdb
 
 ```
@@ -95,7 +101,7 @@ sh start_mcp_server.sh
 ```bash
 cd ~
 wget https://vscode.download.prss.microsoft.com/dbazure/download/stable/7adae6a56e34cb64d08899664b814cf620465925/code-1.102.1-1752598762.el8.aarch64.rpm
-rpm -ivh code-1.102.1-1752598762.el8.aarch64.rpm 
+sudo rpm -ivh code-1.102.1-1752598762.el8.aarch64.rpm 
 
 ```
 
@@ -103,3 +109,24 @@ rpm -ivh code-1.102.1-1752598762.el8.aarch64.rpm
 在 extensions marketplace搜索： Cline 并安装
 
 
+```bash
+{
+  "mcpServers": {
+    "gassdb": {
+      "disabled": false,
+      "timeout": 60,
+      "type": "stdio",
+      "command": "/home/developer/Desktop/mcp-gaussdb-server/gaussdb-server/start_mcp_server.sh",
+      "args": []
+    }
+  }
+}
+
+```
+
+测试语句，一条一条执行
+
+1.给我创建一个表student_info，学生信息，需要的字段有姓名，学号，性别，出生日期，班级，年级，其中学号是自增长的主键
+在student_info表中插入一条测试数据学号为1001，并查询出来
+修改student_info表中学号为1001的学生信息，将姓名改为李四，并查询出来
+4.删除表student_info

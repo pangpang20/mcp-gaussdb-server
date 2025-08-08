@@ -9,6 +9,7 @@ cd "$SCRIPT_DIR" || exit 1
 source .venv/bin/activate
 
 # 设置环境变量
+export PATH=$HOME/.local/bin:$PATH
 export LD_LIBRARY_PATH=/tmp/lib:$LD_LIBRARY_PATH
 export LD_PRELOAD=/tmp/lib/libssl.so.3:/tmp/lib/libcrypto.so.3
 
