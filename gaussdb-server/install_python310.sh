@@ -1,4 +1,5 @@
-sudo dnf install -y gcc openssl-devel bzip2-devel libffi-devel zlib-devel wget make glibc-devel libgcc
+sudo yum groupinstall "Development Tools" -y
+sudo dnf install -y gcc openssl-devel bzip2-devel libffi-devel zlib-devel wget make glibc-devel libgcc tar bzip2 zlib xz zx-devel readline-devel sqlite-devel sqlite-libs
 cd /usr/src
 sudo wget https://mirrors.huaweicloud.com/python/3.10.14/Python-3.10.14.tgz
 sudo tar xzf Python-3.10.14.tgz
