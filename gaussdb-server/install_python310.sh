@@ -10,7 +10,10 @@ fi
 sudo wget https://mirrors.huaweicloud.com/python/3.10.14/Python-3.10.14.tgz
 sudo tar xzf Python-3.10.14.tgz
 cd Python-3.10.14
-sudo ./configure --enable-optimizations
+OPENSSL_PREFIX=/usr
+sudo ./configure --enable-optimizations --with-ensurepip=install \
+    --with-openssl=$OPENSSL_PREFIX
 sudo make -j$(nproc)
 sudo make altinstall
+python3.10 -m ssl
 python3.10 --version
