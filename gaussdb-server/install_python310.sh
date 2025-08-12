@@ -1,5 +1,22 @@
 sudo yum groupinstall "Development Tools" -y
-sudo dnf install -y gcc gcc-c++ openssl-devel bzip2-devel libffi-devel zlib-devel wget make glibc-devel libgcc tar bzip2 zlib xz zx-devel readline-devel sqlite-devel sqlite-libs
+sudo yum install openssl-devel -y
+sudo yum install gcc -y  
+sudo yum install gcc-c++ -y  
+sudo yum install bzip2-devel -y  
+sudo yum install libffi-devel -y  
+sudo yum install zlib-devel -y  
+sudo yum install wget -y  
+sudo yum install make -y  
+sudo yum install glibc-devel -y  
+sudo yum install libgcc -y  
+sudo yum install tar -y  
+sudo yum install bzip2 -y  
+sudo yum install zlib -y  
+sudo yum install xz -y  
+sudo yum install readline-devel -y  
+sudo yum install sqlite-devel -y  
+sudo yum install sqlite-libs -y  
+
 cd /usr/src
 
 if [ ! -f /lib64/libgcc_s.so.1 ]; then
